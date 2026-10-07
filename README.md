@@ -2,15 +2,31 @@
 
 A Nord-inspired theme for [Obsidian](https://obsidian.md) with light ("Days") and dark ("Nights") variants.
 
-## Install with BRAT
+The repo contains two things:
 
-1. Install and enable the **Obsidian42 - BRAT** community plugin.
-2. Open the command palette and run **BRAT: Plugins and Themes → Add a beta theme for testing**.
-3. Enter `VeryRandomness/obsidian-nordic-days-and-nights`.
-4. Select **Nordic Days & Nights** under Settings → Appearance → Themes.
+| Path | What it is |
+| --- | --- |
+| `theme.css`, `manifest.json` | The theme (version in `manifest.json`, mirrored in `package.json` and `versions.json`). |
+| `plugin/` | **Theme Auto-Update**, a tiny Obsidian plugin that installs the theme and keeps it up to date on every launch. |
 
-BRAT checks for updates automatically; to pull one immediately, run **BRAT: Check for updates to all beta plugins and themes**.
+## Install (recommended): Theme Auto-Update
+
+1. In your vault, create the folder `.obsidian/plugins/theme-auto-update/`.
+2. Copy `plugin/main.js` and `plugin/manifest.json` from this repo into it.
+3. In Obsidian: Settings → Community plugins → turn off Restricted mode, click the reload button, and enable **Theme Auto-Update**.
+4. Restart Obsidian. The plugin downloads the theme on launch (you'll see a notice).
+5. Settings → Appearance → Themes → select **Nordic Days & Nights**.
+
+From then on the theme updates itself whenever Obsidian starts. To check immediately, run the command **Check for theme update now**. If the computer is offline, it skips quietly and tries again next launch.
 
 ## Manual install
 
 Copy `theme.css` and `manifest.json` into `<vault>/.obsidian/themes/Nordic Days & Nights/`.
+
+## Releasing an update
+
+1. Edit `theme.css`.
+2. Bump the version in `manifest.json`, `package.json`, and `versions.json` (or run `npm version <x.y.z>` to bump all three).
+3. `git push`. Vaults with the plugin pick it up on their next launch.
+
+The plugin's own version lives in `plugin/manifest.json` and is independent of the theme version.
