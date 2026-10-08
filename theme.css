@@ -356,6 +356,35 @@ body.round-tab-bottom-corners {
 
 
 
+/* --- PROPERTIES LINK STYLING --- */
+/* Readable links inside Properties pills (link text was blue on a blue pill) */
+.metadata-property .multi-select-pill a,
+.metadata-property .multi-select-pill .external-link,
+.metadata-property .multi-select-pill .multi-select-pill-content,
+.metadata-property .multi-select-pill .multi-select-pill-content a {
+    color: #fcfdfe !important;
+    text-decoration: underline;
+    text-decoration-color: rgba(252, 253, 254, 0.6);
+}
+.metadata-property .multi-select-pill a:hover {
+    color: #ffffff !important;
+    text-decoration-color: #ffffff;
+}
+.metadata-property .multi-select-pill .external-link-icon,
+.metadata-property .multi-select-pill .svg-icon {
+    color: #fcfdfe;
+    opacity: 0.9;
+}
+.metadata-property[data-property-type="multitext"] .multi-select-pill {
+    background-color: color-mix(in srgb, var(--tag-pill-color) 85%, #2e3440);
+}
+/* Keep the red "removing" state working */
+.metadata-property .multi-select-pill:has(.svg-icon.lucide-x:hover),
+.metadata-property .multi-select-pill:has(.svg-icon.lucide-x:hover) a {
+    color: #bf616a !important;
+}
+
+
 /* --- TAG STYLING --- */
 
 /* Reading View: single <a> element, full pill */
