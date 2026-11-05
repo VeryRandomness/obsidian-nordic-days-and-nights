@@ -515,6 +515,55 @@ a.tag,
 
 
 
+/* --- NESTED NUMBERED LISTS: 1. → a. → i. --- */
+/* Indented items under a numbered item switch to letters, then roman numerals.
+   Type them as normal numbers; only the displayed marker changes. */
+
+/* Reading View (and PDF export) */
+.markdown-rendered ol ol {
+    list-style-type: lower-alpha;
+}
+.markdown-rendered ol ol ol {
+    list-style-type: lower-roman;
+}
+.markdown-rendered ol ol ol ol {
+    list-style-type: decimal;
+}
+
+/* Live Preview: editor lines are siblings, so count them with CSS counters.
+   Any top-level or non-list line restarts the letters; a level-2 line restarts the numerals. */
+.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.HyperMD-list-line-2):not(.HyperMD-list-line-3) {
+    counter-reset: nordic-ol-2 nordic-ol-3;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line-2 {
+    counter-reset: nordic-ol-3;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line-2:has(.cm-formatting-list-ol) {
+    counter-increment: nordic-ol-2;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line-3:has(.cm-formatting-list-ol) {
+    counter-increment: nordic-ol-3;
+}
+
+/* Hide the typed number and draw the letter / numeral in its place */
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line-2 .cm-formatting-list-ol,
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line-3 .cm-formatting-list-ol {
+    font-size: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line-2 .cm-formatting-list-ol::before,
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line-3 .cm-formatting-list-ol::before {
+    font-size: var(--font-text-size);
+    white-space: pre;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line-2 .cm-formatting-list-ol::before {
+    content: counter(nordic-ol-2, lower-alpha) ". ";
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-list-line-3 .cm-formatting-list-ol::before {
+    content: counter(nordic-ol-3, lower-roman) ". ";
+}
+
+
+
 /* Check Boxes */
 
 /* Squircle Checkboxes */
