@@ -312,6 +312,47 @@ body.round-tab-bottom-corners {
   --tab-radius-active: var(--theme-corner-radius);
 }
 
+/* Sidebar tab headers: lock to icon-only so the active tab can't expand with
+   a label and push inactive tabs into Obsidian's overflow dropdown. */
+body .mod-left-split .workspace-tabs .workspace-tab-header,
+body .mod-right-split .workspace-tabs .workspace-tab-header,
+body .mod-left-split .workspace-tab-header-container .workspace-tab-header,
+body .mod-right-split .workspace-tab-header-container .workspace-tab-header {
+  flex: 0 0 32px !important;
+  width: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+}
+
+body .mod-left-split .workspace-tab-header .workspace-tab-header-inner,
+body .mod-right-split .workspace-tab-header .workspace-tab-header-inner {
+  width: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+  padding: 0 !important;
+  justify-content: center !important;
+}
+
+body .mod-left-split .workspace-tab-header .workspace-tab-header-inner-title,
+body .mod-right-split .workspace-tab-header .workspace-tab-header-inner-title,
+body .mod-left-split .workspace-tab-header .workspace-tab-header-inner-close-button,
+body .mod-right-split .workspace-tab-header .workspace-tab-header-inner-close-button {
+  display: none !important;
+}
+
+body .mod-left-split .workspace-tab-header-container .workspace-tab-header-tab-list,
+body .mod-right-split .workspace-tab-header-container .workspace-tab-header-tab-list {
+  display: none !important;
+}
+
+body .mod-left-split .workspace-tab-header-container,
+body .mod-right-split .workspace-tab-header-container,
+body .mod-left-split .workspace-tab-header-container-inner,
+body .mod-right-split .workspace-tab-header-container-inner {
+  overflow: visible !important;
+  flex-wrap: nowrap !important;
+}
+
 
 /* Rounded Toggles/Switches */
 

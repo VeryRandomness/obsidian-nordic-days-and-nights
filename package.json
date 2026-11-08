@@ -1,6 +1,6 @@
 {
 	"name": "nordic-days-and-nights",
-	"version": "2.1.9",
+	"version": "2.1.10",
 	"scripts": {
 		"version": "node version-bump.mjs && git add manifest.json versions.json"
 	}
